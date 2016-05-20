@@ -1,0 +1,14 @@
+body {
+    padding: 30px;
+    background: url("../background.jpg") no-repeat fixed;
+    background-size: 100% 100%;
+}
+
+.jumbotron {
+    background-color: #061517;
+}
+
+canvas {
+    border: 10px solid #061517;
+}
+

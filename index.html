@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Phaser Jaipur Project</title>
+    <script src="model/model.js"></script>
+    <script src="controller/controller.js"></script>
+    <script src="phaser.min.js"></script>
+    <script src="Boot.js"></script>
+    <script src="Preloader.js"></script>
+    <script src="MainMenu.js"></script>
+    <script src="Game.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <p class="navbar-brand" href="#">Justin's Phaser Project:</p>
+            </div>
+        </div>
+    </nav>
+    <div>
+        <div id="gameContainer">
+            <script type="text/javascript">
+                window.onload = function () {
+                    // this is the template provided by the Phaser devs from their git hub
+                    //	Create your Phaser game and inject it into the gameContainer div.
+                    //	We did it in a window.onload event, but you can do it anywhere (requireJS load, anonymous function, jQuery dom ready, - whatever floats your boat)
+                    var game = new Phaser.Game(800, 600, Phaser.AUTO, 'gameContainer'); //1024,768
+                    //	Add the States your game has.
+                    //	You don't have to do this in the html, it could be done in your Boot state too, but for simplicity I'll keep it here.
+                    game.state.add('Boot', BasicGame.Boot);
+                    game.state.add('Preloader', BasicGame.Preloader);
+                    game.state.add('MainMenu', BasicGame.MainMenu);
+                    game.state.add('Game', BasicGame.Game);
+                    //	Now start the Boot state.
+                    game.state.start('Boot');
+                };
+            </script>
+        </div>
+    </div>
+    <div class="row">
+        <div class="center-block">
+
+            <h2 class="panel-heading bg-primary">Info</h2>
+            <blockquote class="breadcrumb">
+                <p>Jaipur is a card game for 2 players designed by Sebastien Pauehon and published by Game Works.
+                    It is a popular filler game and is ranked in the top 100 board games and top 10 family games on
+                    <a href="https://boardgamegeek.com/boardgame/54043/jaipur">Boardgamegeek.com</a>.
+                    It features hand management, set collection, and trading mechanics. It was published in 2009.</p>
+            </blockquote>
+            <h2 class="panel-heading bg-primary">Jaipur Rules</h2>
+
+            <h2 class="bg-info">Goal:</h2>
+            <blockquote class="breadcrumb">
+                <p> Be the trader to have sold your <strong>Goods</strong> for the most
+                    Rupees by the end of the <strong>Round</strong></p>
+            </blockquote>
+            <h2 class="bg-info">To Win:</h2>
+            <blockquote class="breadcrumb"><p> Best 2 out of 3 <strong>Rounds</strong>.
+                <strong>Round</strong> is won by having
+                the highest total Rupee value of <strong>Good</strong> Tokens, Bonus
+                Tokens and <strong>Camel Herd</strong> Bonus points.</p></blockquote>
+            <h2 class="bg-info">Turn Overview:</h2>
+            <blockquote class="breadcrumb"><p> You can either <u>Take Cards</u> or <u>Sell Cards</u>
+                <ul class="list-unstyled">
+                    <li>❖ <u class="text-warning">Take Cards</u> (choose one of the following)
+                        <ul>
+                            <li><em>Make an Exchange</em>: take two or more <strong>Good</strong> cards
+                                from the Market into your hand and place an equal
+                                amount of cards from your hand and/or <strong>Camel Herd</strong>
+                                <blockquote class="bg-warning">✓You may not take this action if doing so would
+                                    cause you to have more than 7 cards in hand.
+                                </blockquote>
+                            </li>
+                            <li><em>Take a Single Good</em>: take 1 <strong>Good</strong> card from the
+                                Market into your hand and replace it with the top card
+                                from the draw pile.
+                                <blockquote class="bg-warning">✓You may not take this action if doing so would
+                                    cause you to have more than 7 cards in hand.
+                                </blockquote>
+                            </li>
+                            <li><em>Take all of the <strong>Camels</strong></em>: take all the <strong>Camels</strong>
+                                from the
+                                Market and add them to your <strong>Camel Herd</strong>, then
+                                replace the <strong>Camels</strong> you took with cards from the draw
+                                pile.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>❖ <u class="text-warning">Sell Cards</u>
+                        <ol>
+                            <li>Choose 1 <strong>type</strong> of <strong>Good</strong> card from your hand and
+                                discard face-up as many of them as you want.
+                                <blockquote class="bg-warning">➡If selling the 3 most expensive <strong>Good</strong>
+                                    types
+                                    (diamonds, gold, or silver), you must sell at least 2
+                                    at a time.
+                                </blockquote>
+                            </li>
+                            <li>Take an equal number of <strong>Good</strong> tokens (of the same
+                                type that you discarded)
+                                <blockquote class="bg-warning">➡If you sell 3 or more cards during a Sell action,
+                                    take a corresponding Bonus token (3, 4 , or 5).
+                                </blockquote>
+                            </li>
+                            </li></ol>
+                </ul>
+                </p></blockquote>
+            <h2 class="bg-info">Scoring:</h2>
+            <blockquote class="breadcrumb"><p> Add the total Rupee value of your <strong>Good</strong> and
+                Bonus tokens. Player with the most <strong>Camels</strong> in their <strong>Herd</strong>
+                gets the <strong>Camel</strong> Bonus token worth 5 Rupees. Highest
+                Rupee value wins the <strong>Round</strong>.</p></blockquote>
+            <p><a class="btn btn-primary" href="#" role="button">back to Top »</a></p>
+        </div>
+        <hr>
+        <footer class="footer">
+            <p>© 2015 Justin Smith</p>
+        </footer>
+    </div>
+</div>
+</body>
+</html>
